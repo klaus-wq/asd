@@ -1,4 +1,5 @@
 from linked_list import *
+from linked_list_sum import sum
 import unittest
 
 class TestLinkedList(unittest.TestCase):
@@ -99,6 +100,21 @@ class TestLinkedList(unittest.TestCase):
         s_list.add_in_tail(Node(55))
         s_list.insert(None, Node(15))
         self.assertEqual(s_list.head.value, 15)
+
+    def test_sum(self):
+        list1 = LinkedList()
+        list1.add_in_tail(Node(12))
+        list1.add_in_tail(Node(78))
+        list1.add_in_tail(Node(45))
+        list1.add_in_tail(Node(12))
+        list2 = LinkedList()
+        list2.add_in_tail(Node(12))
+        list2.add_in_tail(Node(12))
+        list2.add_in_tail(Node(786))
+        list2.add_in_tail(Node(45))
+        self.assertEqual(sum(list1, list2).all_nodes_to_array(), [24, 90, 831, 57])
+        list1.delete(78)
+        self.assertEqual(sum(list1, list2), None)
 
 if __name__ == "__main__":
   unittest.main()

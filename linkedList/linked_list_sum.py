@@ -9,7 +9,6 @@ def sum(list1: LinkedList, list2: LinkedList):
             list.add_in_tail(Node(node1.value + node2.value))
             node1 = node1.next
             node2 = node2.next
-        list.print_all_nodes()
         return list
 
 

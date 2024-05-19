@@ -24,6 +24,14 @@ class LinkedList:
             print(node.value)
             node = node.next
 
+    def all_nodes_to_array(self):
+        node = self.head
+        res = []
+        while node != None:
+            res.append(node.value)
+            node = node.next
+        return res
+
     def find(self, val):
         node = self.head
         while node is not None:
@@ -92,7 +100,7 @@ class LinkedList:
         while node != None:
             node_prev = node
             node = node.next
-            if node_prev.value == afterNode.value and node_prev == self.tail:
+            if node_prev.value == afterNode.value and node_prev.next == None:
                 newNode.next = node
                 node_prev.next = newNode
                 self.tail = newNode
