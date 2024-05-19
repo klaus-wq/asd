@@ -92,15 +92,13 @@ class LinkedList:
         while node != None:
             node_prev = node
             node = node.next
-            if node_prev.value == afterNode.value and node_prev.next == None:
+            if node_prev.value == afterNode.value and node_prev == self.tail:
                 newNode.next = node
                 node_prev.next = newNode
                 self.tail = newNode
             if node_prev.value == afterNode.value:
                 newNode.next = node
                 node_prev.next = newNode
-
-
 
 
 
