@@ -45,18 +45,18 @@ class LinkedList:
         node = self.head
         node_prev = self.head
         while node != None:
-            if node.value == val and node == self.head:
+            if node.value == val and node == self.head and node == self.tail:
+                self.head = None
+                self.tail = None
+                if not all:
+                    break
+            elif node.value == val and node == self.head:
                 self.head = node.next
                 if not all:
                     break
             elif node.value == val and node == self.tail:
                 self.tail = node_prev
                 node_prev.next = node.next
-                if not all:
-                    break
-            elif node.value == val and node == self.head and node == self.tail:
-                self.head = None
-                self.tail = None
                 if not all:
                     break
             elif node.value == val:
@@ -80,13 +80,13 @@ class LinkedList:
         return total_length
 
     def insert(self, afterNode, newNode):
-        if self.head == None:
-            self.tail = newNode
-            self.head = newNode
-            return
         if afterNode == None:
-            newNode.next = self.head
-            self.head = newNode
+            if self.head == None:
+                self.tail = newNode
+                self.head = newNode
+            else:
+                newNode.next = self.head
+                self.head = newNode
             return
         node = self.head
         while node != None:
