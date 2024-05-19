@@ -54,7 +54,7 @@ class LinkedList:
                 node_prev.next = node.next
                 if not all:
                     break
-            elif node == self.head and node == self.tail:
+            elif node.value == val and node == self.head and node == self.tail:
                 self.head = None
                 self.tail = None
                 if not all:
