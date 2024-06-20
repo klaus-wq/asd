@@ -37,7 +37,7 @@ class HashTable:
             if current_index == index:
                 return None
 
-    def show_hash_table(self):
+    def print_hash_table(self):
         res = []
         for i in self.slots:
             res.append(i)
