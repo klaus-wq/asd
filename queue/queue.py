@@ -13,6 +13,10 @@ class Queue:
     def size(self):
         return len(self.queue)
 
+    def rotate(self, N: int):
+        pass
+
+
 
 
 
