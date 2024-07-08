@@ -4,7 +4,6 @@ class NativeCache:
         self.slots = [None] * self.size
         self.values = [None] * self.size
         self.hits = [0] * self.size
-        self.step = 3
 
     def hash_fun(self, key):
         return id(key) % self.size
@@ -19,7 +18,7 @@ class NativeCache:
             return self.values[index]
         return None
 
-    def put(self, key, value):
+    def put(self, key, value, step):
         index = self.hash_fun(key)
         current_index = index
         while True:
@@ -30,7 +29,7 @@ class NativeCache:
                 self.slots[index] = key
                 self.values[index] = value
                 return
-            current_index = (current_index + self.step) % self.size
+            current_index = (current_index + step) % self.size
             if current_index == index:
                 hits_index = self.hits.index(min(self.hits))
                 self.slots[hits_index] = key
